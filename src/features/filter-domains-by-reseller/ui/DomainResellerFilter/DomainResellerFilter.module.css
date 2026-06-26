@@ -1,0 +1,39 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.chip {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  border: none;
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--r-chip);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.15s ease;
+}
+.chip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sh);
+}
+.chip:active {
+  transform: scale(0.96);
+}
+.active {
+  background: var(--accent);
+  color: #fff;
+}
+.active:hover {
+  box-shadow: 0 6px 16px rgba(41, 119, 181, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+  }
+}

@@ -1,0 +1,73 @@
+.appbar {
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-decoration: none;
+}
+.logo {
+  height: 24px;
+  width: 115px;
+  display: block;
+}
+.caption {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--text-2);
+}
+.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.gos {
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+.gos img {
+  display: block;
+}
+.logout {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 2px;
+  margin-left: 16px;
+}
+.logout img {
+  display: block;
+}
+.logout:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 760px) {
+  .inner {
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 0;
+  }
+  .caption {
+    display: none;
+  }
+}

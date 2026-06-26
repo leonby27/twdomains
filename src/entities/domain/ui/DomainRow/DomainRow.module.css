@@ -1,0 +1,73 @@
+/* Сетка колонок наследуется от --table-cols, заданной в виджете таблицы. */
+.row {
+  display: grid;
+  grid-template-columns: var(--table-cols);
+  align-items: center;
+  column-gap: 12px;
+  height: 64px;
+  padding: 0 16px;
+  width: 100%;
+  background: var(--surface);
+  border: none;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+.row:last-child {
+  border-bottom: none;
+}
+.row:hover {
+  background: #fafbfc;
+}
+.domain {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.globe {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.name {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chev {
+  color: var(--muted);
+  justify-self: end;
+}
+
+@media (max-width: 760px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+    padding: 14px 16px;
+    gap: 10px 12px;
+    position: relative;
+  }
+  .domain {
+    flex: 1 1 100%;
+  }
+  .chev {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+  }
+}

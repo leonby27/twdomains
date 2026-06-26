@@ -1,0 +1,23 @@
+.reseller {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: var(--r-chip);
+  background: var(--bg);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--text);
+}
+.logo {
+  display: block;
+  flex-shrink: 0;
+}
+.dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #4f9fd8);
+  flex-shrink: 0;
+}

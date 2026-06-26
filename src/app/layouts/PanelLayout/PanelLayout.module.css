@@ -1,0 +1,18 @@
+.content {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+.back {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+}
+.back:hover {
+  color: var(--text);
+}

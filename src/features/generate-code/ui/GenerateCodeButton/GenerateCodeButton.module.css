@@ -1,0 +1,60 @@
+.gencode {
+  flex-shrink: 0;
+  width: 272px;
+  background: var(--surface);
+  border: none;
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 12px 12px;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: transform 0.12s ease, box-shadow 0.15s ease;
+}
+.gencode:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sh);
+}
+.gencode:active {
+  transform: scale(0.98);
+}
+.ic {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--text);
+}
+.sub {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--text-2);
+}
+.arrow {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  .gencode {
+    width: 100%;
+  }
+}

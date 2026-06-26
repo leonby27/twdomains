@@ -1,0 +1,25 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: var(--text);
+}
+.verified {
+  display: block;
+  flex-shrink: 0;
+}
+.sub {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--text-2);
+}
