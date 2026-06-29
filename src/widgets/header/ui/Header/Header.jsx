@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useUnit } from 'effector-react'
-import { $user, logout, UserBadge } from '@/entities/session'
+import { $user, UserBadge } from '@/entities/session'
+import { openLogoutModal } from '@/features/logout'
 import { IconBurger } from '@/shared/ui/Icon'
 import { ROUTES } from '@/shared/config/routes'
 import { MobileMenu } from '../MobileMenu/MobileMenu.jsx'
@@ -10,14 +11,12 @@ import styles from './Header.module.css'
 // Шапка панели: логотип + подпись · разделитель │ Госуслуги │ пользователь · выход.
 // На мобильном — бургер, открывающий off-canvas меню.
 export function Header() {
-  const navigate = useNavigate()
-  const [user, onLogout] = useUnit([$user, logout])
+  const [user, openLogout] = useUnit([$user, openLogoutModal])
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleLogout = () => {
-    onLogout()
-    navigate(ROUTES.login)
     setMenuOpen(false)
+    openLogout()
   }
 
   return (
