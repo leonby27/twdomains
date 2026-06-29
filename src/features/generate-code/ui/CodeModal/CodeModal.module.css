@@ -65,32 +65,22 @@
   font-size: 28px;
   font-weight: 800;
   letter-spacing: 2px;
-  color: var(--accent);
-  margin-top: 10px;
+  color: var(--text);
 }
 .expired .code {
   color: var(--muted);
 }
 .ttl {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 14px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 13px;
+  margin-top: 12px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-2);
 }
 .ttlWarn {
   color: var(--orange);
-  border-color: rgba(237, 155, 34, 0.4);
 }
 .ttlExpired {
   color: #c0392b;
-  border-color: rgba(239, 68, 68, 0.4);
 }
 .action {
   margin-top: 16px;
