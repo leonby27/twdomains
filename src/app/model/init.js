@@ -12,7 +12,14 @@ sample({ clock: logout, target: domainsReset })
 // Тема: применяем к <html> и сохраняем. watch срабатывает сразу с текущим
 // значением, поэтому начальная тема выставляется при загрузке.
 $theme.watch((theme) => {
-  document.documentElement.setAttribute('data-theme', theme)
+  const root = document.documentElement
+  root.setAttribute('data-theme', theme)
+  // Красим панели браузера/ОС в цвет фона текущей темы. Читаем живое значение
+  // --bg, чтобы не дублировать цвета из CSS. На Android нижний системный бар
+  // подхватывает theme-color при установке сайта как PWA.
+  const bg = getComputedStyle(root).getPropertyValue('--bg').trim()
+  const meta = document.querySelector('meta[name="theme-color"]')
+  if (meta && bg) meta.setAttribute('content', bg)
   try {
     localStorage.setItem(STORAGE_KEY, theme)
   } catch {
