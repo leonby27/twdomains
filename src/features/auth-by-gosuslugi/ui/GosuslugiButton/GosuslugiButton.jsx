@@ -6,8 +6,13 @@ import { ROUTES } from '@/shared/config/routes'
 export function GosuslugiButton() {
   const navigate = useNavigate()
   return (
-    <Button variant="ghost" block onClick={() => navigate(ROUTES.gosuslugi)}>
-      <img src="/gos.svg" alt="" width="22" height="22" />
+    <Button
+      variant="ghost"
+      block
+      style={{ fontWeight: 500 }}
+      onClick={() => navigate(ROUTES.gosuslugi)}
+    >
+      <img src="/gos.svg" alt="" width="26" height="26" />
       Войти через Госуслуги
     </Button>
   )
