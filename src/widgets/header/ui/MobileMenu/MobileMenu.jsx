@@ -2,8 +2,8 @@ import { ThemeSwitch } from '@/features/theme-switch'
 import { asset } from '@/shared/lib/asset'
 import styles from './MobileMenu.module.css'
 
-// Off-canvas меню (правая панель): по центру — блок пользователя, внизу — выход.
-// Открывается бургером в шапке на мобильном.
+// Bottom sheet меню: выезжает снизу. Сверху — хваталка и переключатель темы,
+// затем блок пользователя, внизу — выход. Открывается бургером в шапке на мобильном.
 export function MobileMenu({ open, onClose, user, onLogout }) {
   return (
     <div
@@ -12,6 +12,8 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
       aria-hidden={!open}
     >
       <aside className={styles.panel} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.grabber} />
+
         <div className={styles.theme}>
           <ThemeSwitch />
         </div>
