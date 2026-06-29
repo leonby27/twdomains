@@ -1,7 +1,7 @@
 /* --table-cols задаёт колонки и для шапки, и для строк (DomainRow наследует). */
 .table {
   --table-cols: minmax(200px, 360px) 288px minmax(0, 1fr) 24px;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 .head {
   display: grid;
