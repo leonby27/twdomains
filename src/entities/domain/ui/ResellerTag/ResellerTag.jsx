@@ -9,7 +9,7 @@ export function ResellerTag({ reseller }) {
       {icon ? (
         <img className={styles.logo} src={icon} alt="" width="24" height="24" />
       ) : (
-        <span className={styles.dot} />
+        <span className={styles.letter}>{reseller[0]}</span>
       )}
       {reseller}
     </span>
