@@ -5,6 +5,7 @@
 export const RESELLER_ICONS = {
   'Timeweb Хостинг': '/reg-hosting.svg',
   'Timeweb Cloud': '/reg-cloud.svg',
+  Craftum: '/craftum.svg',
 }
 
 // Реселлеры для фильтра. Порядок как в макете.
