@@ -83,12 +83,12 @@
   background: var(--bg);
 }
 .confirm {
-  background: var(--danger);
+  background: #ea4336;
   border: none;
   color: #fff;
 }
 .confirm:hover {
-  background: var(--danger-600);
+  background: #d23529;
 }
 
 @keyframes fadeIn {

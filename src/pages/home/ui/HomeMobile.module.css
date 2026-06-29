@@ -27,8 +27,9 @@
   margin-bottom: 12px;
 }
 .list {
-  border-radius: var(--r);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 .loader {
   display: flex;
