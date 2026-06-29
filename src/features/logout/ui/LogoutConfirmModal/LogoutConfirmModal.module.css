@@ -60,10 +60,10 @@
 }
 .btn {
   flex: 1;
-  height: 48px;
+  height: 44px;
   border-radius: 12px;
   font: inherit;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
   cursor: pointer;
   display: flex;
@@ -83,12 +83,12 @@
   background: var(--bg);
 }
 .confirm {
-  background: var(--accent);
+  background: var(--danger);
   border: none;
   color: #fff;
 }
 .confirm:hover {
-  background: var(--accent-600);
+  background: var(--danger-600);
 }
 
 @keyframes fadeIn {
