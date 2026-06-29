@@ -102,6 +102,41 @@
     transform: translateY(10px) scale(0.98);
   }
 }
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* Мобайл: модалка превращается в action sheet — выезжает снизу. */
+@media (max-width: 760px) {
+  .scrim {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .card {
+    width: 100%;
+    max-width: none;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+    padding-top: 28px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+    animation: slideUp 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  /* Полоска-хваталка сверху листа */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    border-radius: 100px;
+    background: var(--line-2);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .scrim,
