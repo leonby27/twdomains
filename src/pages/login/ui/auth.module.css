@@ -12,9 +12,7 @@
 }
 .card {
   background: var(--surface);
-  border: 1px solid var(--line);
   border-radius: 22px;
-  box-shadow: var(--sh-lg);
   padding: 34px 30px;
   width: 100%;
   max-width: 440px;
