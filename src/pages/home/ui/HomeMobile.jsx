@@ -60,11 +60,11 @@ export function HomeMobile() {
           {visible.map((d) => (
             <DomainRowMobile key={d.name} domain={d} onClick={() => openDetails(d.name)} />
           ))}
-          {hasMore && (
-            <div className={styles.loader} ref={sentinelRef}>
-              <Spinner size={24} />
-            </div>
-          )}
+        </div>
+      )}
+      {hasMore && (
+        <div className={styles.loader} ref={sentinelRef}>
+          <Spinner size={24} gray />
         </div>
       )}
 

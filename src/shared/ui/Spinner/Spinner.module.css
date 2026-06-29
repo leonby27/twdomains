@@ -6,6 +6,10 @@
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
+.gray {
+  border-color: var(--line);
+  border-top-color: var(--muted);
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
