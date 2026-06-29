@@ -1,9 +1,14 @@
 .auth {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 32px 18px;
+  padding: 40px 18px;
+}
+.topLogo {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 .card {
   background: var(--surface);
@@ -14,6 +19,7 @@
   width: 100%;
   max-width: 440px;
   text-align: center;
+  margin: auto 0;
 }
 .center {
   text-align: center;
