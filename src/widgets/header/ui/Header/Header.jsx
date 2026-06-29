@@ -42,7 +42,11 @@ export function Header() {
 
           <UserBadge user={user} />
 
-          <button className={styles.logout} title="Выйти" onClick={handleLogout}>
+          <button
+            className={styles.logout}
+            data-tip="Выйти из аккаунта"
+            onClick={handleLogout}
+          >
             <img src="/logout.svg" alt="Выйти" width="24" height="24" />
           </button>
         </div>
