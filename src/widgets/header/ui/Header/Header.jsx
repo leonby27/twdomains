@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useUnit } from 'effector-react'
 import { $user, UserBadge } from '@/entities/session'
@@ -13,6 +13,14 @@ import styles from './Header.module.css'
 export function Header() {
   const [user, openLogout] = useUnit([$user, openLogoutModal])
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const handleLogout = () => {
     setMenuOpen(false)
@@ -20,7 +28,7 @@ export function Header() {
   }
 
   return (
-    <header className={styles.appbar}>
+    <header className={`${styles.appbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <Link to={ROUTES.home} className={styles.brand}>
           <img className={styles.logo} src="/logo.svg" alt="Timeweb" />
