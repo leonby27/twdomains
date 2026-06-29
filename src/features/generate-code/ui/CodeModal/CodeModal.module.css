@@ -26,12 +26,15 @@
   height: 32px;
   border: none;
   background: var(--bg);
-  border-radius: 9px;
+  border-radius: 50%;
   color: var(--muted);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
 }
 .close:hover {
   background: var(--line);
@@ -41,12 +44,14 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;
+  text-align: center;
 }
 .sub {
   color: var(--muted);
   font-size: 14px;
   margin-top: 4px;
   margin-bottom: 18px;
+  text-align: center;
 }
 .codeBox {
   background: var(--bg);
@@ -114,18 +119,10 @@
   background: var(--green-bg);
 }
 .note {
-  display: flex;
-  gap: 10px;
-  padding: 12px 14px;
-  border-radius: var(--r-sm);
-  font-size: 13px;
-  align-items: flex-start;
-  background: var(--orange-bg);
-  color: #9a7100;
   margin-top: 16px;
-}
-.noteIc {
-  flex-shrink: 0;
+  font-size: 13px;
+  text-align: center;
+  color: #e85b1a;
 }
 
 @keyframes fadeIn {
