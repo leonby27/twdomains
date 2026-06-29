@@ -50,6 +50,25 @@ export const IconLock = (p) => (
   </svg>
 )
 
+export const IconSearch = (p) => (
+  <svg {...base} {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m21 21-4-4" />
+  </svg>
+)
+
+export const IconBurger = (p) => (
+  <svg {...base} {...p}>
+    <path d="M4 7h16M4 12h16M4 17h16" />
+  </svg>
+)
+
+export const IconFilter = (p) => (
+  <svg {...base} {...p}>
+    <path d="M3 5h18l-7 8v5l-4 2v-7z" />
+  </svg>
+)
+
 // Сплошной кружок с «!» — статус «истекает» (оранжевый в макете).
 export const IconAlert = (p) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...p}>

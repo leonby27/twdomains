@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useUnit } from 'effector-react'
 import { $user, logout, UserBadge } from '@/entities/session'
+import { IconBurger } from '@/shared/ui/Icon'
 import { ROUTES } from '@/shared/config/routes'
 import styles from './Header.module.css'
 
@@ -35,6 +36,11 @@ export function Header() {
             <img src="/logout.svg" alt="Выйти" width="24" height="24" />
           </button>
         </div>
+
+        {/* Мобильное меню-бургер (показывается только на узких экранах) */}
+        <button className={styles.burger} title="Меню">
+          <IconBurger width="24" height="24" />
+        </button>
       </div>
     </header>
   )

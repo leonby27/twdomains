@@ -10,6 +10,13 @@ export const RESELLER_ICONS = {
 // Реселлеры для фильтра. Порядок как в макете.
 export const RESELLERS = ['Timeweb Хостинг', 'Timeweb Cloud', 'Craftum']
 
+// Цвет кружка-глобуса регистратора в мобильном списке.
+export const RESELLER_COLORS = {
+  'Timeweb Хостинг': '#2977b5',
+  'Timeweb Cloud': '#464cee',
+  Craftum: '#25a668',
+}
+
 const MOCK_DOMAINS = [
   {
     name: 'basketballgame-spb.ru',

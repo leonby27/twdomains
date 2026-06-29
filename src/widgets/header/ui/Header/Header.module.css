@@ -60,14 +60,28 @@
 .logout:hover {
   opacity: 0.7;
 }
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  padding: 2px;
+  margin-left: auto;
+}
 
 @media (max-width: 760px) {
   .inner {
-    flex-wrap: wrap;
-    gap: 10px;
-    min-height: 0;
+    min-height: 56px;
+    padding: 16px;
   }
   .caption {
     display: none;
+  }
+  .right {
+    display: none;
+  }
+  .burger {
+    display: inline-flex;
   }
 }

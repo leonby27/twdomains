@@ -1,0 +1,40 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+.title {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+.iconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.iconBtn.on {
+  color: var(--accent);
+}
+.reveal {
+  margin-bottom: 12px;
+}
+.list {
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.empty {
+  text-align: center;
+  padding: 28px 16px;
+  color: var(--muted);
+  font-size: 14px;
+  background: var(--surface);
+  border-radius: var(--r);
+}

@@ -1,24 +1,9 @@
-import { DomainResellerFilter } from '@/features/filter-domains-by-reseller'
-import { DomainSearch } from '@/features/search-domains'
-import { GenerateCodeButton } from '@/features/generate-code'
-import { DomainsTable } from '@/widgets/domains-table'
-import { Faq } from '@/widgets/faq'
-import styles from './HomePage.module.css'
+import { useIsMobile } from '@/shared/lib/useIsMobile'
+import { HomeDesktop } from './HomeDesktop.jsx'
+import { HomeMobile } from './HomeMobile.jsx'
 
-// Главный экран: «Мои домены» — фильтр, генерация кода, поиск, таблица, FAQ.
+// Главный экран «Мои домены»: мобильный и десктоп виды по вьюпорту.
 export function HomePage() {
-  return (
-    <>
-      <div className={styles.top}>
-        <div>
-          <h1 className={styles.title}>Мои домены</h1>
-          <DomainResellerFilter />
-        </div>
-        <GenerateCodeButton />
-      </div>
-      <DomainSearch />
-      <DomainsTable />
-      <Faq />
-    </>
-  )
+  const isMobile = useIsMobile()
+  return isMobile ? <HomeMobile /> : <HomeDesktop />
 }
