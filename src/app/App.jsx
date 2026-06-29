@@ -4,7 +4,6 @@ import { $isAuthed } from '@/entities/session'
 import { LoginPage, GosRedirectPage } from '@/pages/login'
 import { HomePage } from '@/pages/home'
 import { DomainDetailPage } from '@/pages/domain-detail'
-import { GenerateCodePage } from '@/pages/generate-code'
 import { ROUTES } from '@/shared/config/routes'
 import { PanelLayout } from './layouts/PanelLayout/PanelLayout.jsx'
 
@@ -38,14 +37,7 @@ export function App() {
           </Protected>
         }
       />
-      <Route
-        path={ROUTES.code}
-        element={
-          <Protected back={ROUTES.home}>
-            <GenerateCodePage />
-          </Protected>
-        }
-      />
+      <Route path={ROUTES.code} element={<Navigate to={ROUTES.home} replace />} />
       <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
     </Routes>
   )

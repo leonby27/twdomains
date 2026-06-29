@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom'
+import { useUnit } from 'effector-react'
 import { IconChevronRight } from '@/shared/ui/Icon'
-import { ROUTES } from '@/shared/config/routes'
+import { openCodeModal } from '../../model/modal.js'
 import styles from './GenerateCodeButton.module.css'
 
-// Карточка-кнопка «Сгенерировать код» — ведёт на экран генерации кода.
+// Карточка-кнопка «Сгенерировать код» — открывает модалку с кодом верификации.
 export function GenerateCodeButton() {
-  const navigate = useNavigate()
+  const open = useUnit(openCodeModal)
   return (
-    <button className={styles.gencode} onClick={() => navigate(ROUTES.code)}>
+    <button className={styles.gencode} onClick={() => open()}>
       <span className={styles.ic}>
         <img src="/lock.svg" alt="" width="24" height="24" />
       </span>

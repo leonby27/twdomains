@@ -1,17 +1,16 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useUnit } from 'effector-react'
 import { $domains, selectDomainByName, DateBadge } from '@/entities/domain'
 import { $user } from '@/entities/session'
+import { openCodeModal } from '@/features/generate-code'
 import { Button } from '@/shared/ui/Button'
 import { IconGlobe } from '@/shared/ui/Icon'
-import { ROUTES } from '@/shared/config/routes'
 import styles from './DomainDetailPage.module.css'
 
 // Деталь домена: реселлер, срок, администратор, размещение + действия.
 export function DomainDetailPage() {
   const { name } = useParams()
-  const navigate = useNavigate()
-  const [domains, user] = useUnit([$domains, $user])
+  const [domains, user, openCode] = useUnit([$domains, $user, openCodeModal])
   const domain = selectDomainByName(domains, decodeURIComponent(name || ''))
 
   if (!domain) {
@@ -56,7 +55,7 @@ export function DomainDetailPage() {
         <Button variant="ghost" block>
           Продлить домен
         </Button>
-        <Button variant="ghost" block onClick={() => navigate(ROUTES.code)}>
+        <Button variant="ghost" block onClick={() => openCode()}>
           Сгенерировать код верификации
         </Button>
       </div>

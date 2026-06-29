@@ -1,0 +1,158 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.18s ease;
+}
+.card {
+  position: relative;
+  background: var(--surface);
+  border-radius: 20px;
+  width: min(460px, 100%);
+  padding: 24px;
+  box-shadow: var(--sh-lg);
+  animation: popIn 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--bg);
+  border-radius: 9px;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.close:hover {
+  background: var(--line);
+  color: var(--text);
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+.sub {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 4px;
+  margin-bottom: 18px;
+}
+.codeBox {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+}
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+.code {
+  font-family: ui-monospace, monospace;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-top: 10px;
+}
+.expired .code {
+  color: var(--muted);
+}
+.ttl {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.ttlWarn {
+  color: var(--orange);
+  border-color: rgba(237, 155, 34, 0.4);
+}
+.ttlExpired {
+  color: #c0392b;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+.action {
+  margin-top: 16px;
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, transform 0.12s;
+}
+.action:hover {
+  background: var(--accent-600);
+}
+.action:active {
+  transform: scale(0.99);
+}
+.copied {
+  background: var(--green-bg);
+  color: var(--green);
+}
+.copied:hover {
+  background: var(--green-bg);
+}
+.note {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  align-items: flex-start;
+  background: var(--orange-bg);
+  color: #9a7100;
+  margin-top: 16px;
+}
+.noteIc {
+  flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrim,
+  .card {
+    animation: none;
+  }
+}
