@@ -13,6 +13,7 @@
   padding: 34px 30px;
   width: 100%;
   max-width: 440px;
+  text-align: center;
 }
 .center {
   text-align: center;
@@ -25,6 +26,7 @@
 .brand {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 18px;
 }
