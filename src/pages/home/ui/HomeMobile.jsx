@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useUnit } from 'effector-react'
 import { DomainRowMobile } from '@/entities/domain'
-import { DomainResellerFilter } from '@/features/filter-domains-by-reseller'
+import { DomainResellerFilter, $canFilter } from '@/features/filter-domains-by-reseller'
 import { DomainSearch } from '@/features/search-domains'
 import { GenerateCodeButton } from '@/features/generate-code'
 import { openDomainDetails } from '@/features/domain-details'
@@ -15,7 +15,11 @@ import styles from './HomeMobile.module.css'
 // Мобильный вид: карточка кода сверху, заголовок с иконками фильтра/поиска,
 // компактный список доменов, FAQ.
 export function HomeMobile() {
-  const [domains, openDetails] = useUnit([$visibleDomains, openDomainDetails])
+  const [domains, openDetails, canFilter] = useUnit([
+    $visibleDomains,
+    openDomainDetails,
+    $canFilter,
+  ])
   const [openFilter, setOpenFilter] = useState(false)
   const [openSearch, setOpenSearch] = useState(false)
   const { visible, hasMore, sentinelRef } = useIncrementalList(domains, 30)
@@ -26,13 +30,15 @@ export function HomeMobile() {
 
       <div className={styles.bar}>
         <h1 className={styles.title}>Мои домены</h1>
-        <button
-          className={`${styles.iconBtn} ${openFilter ? styles.on : ''}`}
-          title="Фильтр"
-          onClick={() => setOpenFilter((v) => !v)}
-        >
-          <IconFilter width="24" height="24" />
-        </button>
+        {canFilter && (
+          <button
+            className={`${styles.iconBtn} ${openFilter ? styles.on : ''}`}
+            title="Фильтр"
+            onClick={() => setOpenFilter((v) => !v)}
+          >
+            <IconFilter width="24" height="24" />
+          </button>
+        )}
         <button
           className={`${styles.iconBtn} ${openSearch ? styles.on : ''}`}
           title="Поиск"
