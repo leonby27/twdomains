@@ -18,8 +18,8 @@
   height: 100%;
   background: var(--surface);
   padding: 16px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto;
   transform: translateX(100%);
   transition: transform 0.25s ease;
   box-shadow: -10px 0 40px rgba(27, 54, 74, 0.15);
@@ -27,24 +27,26 @@
 .open .panel {
   transform: none;
 }
-.card {
-  background: var(--bg);
-  border-radius: var(--r);
-  padding: 12px;
+/* Блок пользователя по центру панели */
+.user {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .gos {
   display: block;
 }
-.info {
-  margin-top: 12px;
-}
 .name {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  font-size: 14px;
+  margin-top: 12px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 16px;
+  line-height: 24px;
   color: var(--text);
 }
 .verified {
@@ -52,13 +54,12 @@
   flex-shrink: 0;
 }
 .sub {
-  margin-top: 4px;
-  font-size: 12px;
-  line-height: 14px;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 16px;
   color: var(--text-2);
 }
 .logout {
-  margin-top: auto;
   height: 48px;
   display: flex;
   align-items: center;

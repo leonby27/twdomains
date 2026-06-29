@@ -1,7 +1,6 @@
-import { IconLock } from '@/shared/ui/Icon'
 import styles from './MobileMenu.module.css'
 
-// Off-canvas меню (правая панель) с карточкой пользователя и выходом.
+// Off-canvas меню (правая панель): по центру — блок пользователя, внизу — выход.
 // Открывается бургером в шапке на мобильном.
 export function MobileMenu({ open, onClose, user, onLogout }) {
   return (
@@ -11,10 +10,10 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
       aria-hidden={!open}
     >
       <aside className={styles.panel} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.card}>
-          <img className={styles.gos} src="/gos.svg" alt="Госуслуги" width="40" height="40" />
+        <div className={styles.user}>
+          <img className={styles.gos} src="/gos.svg" alt="Госуслуги" width="64" height="64" />
           {user && (
-            <div className={styles.info}>
+            <>
               <div className={styles.name}>
                 {user.name}
                 {user.esiaVerified && (
@@ -22,13 +21,13 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
                     className={styles.verified}
                     src="/verified.svg"
                     alt="Верифицирован через ЕСИА"
-                    width="18"
-                    height="18"
+                    width="16"
+                    height="16"
                   />
                 )}
               </div>
-              <div className={styles.sub}>Верифицирован через ЕСИА</div>
-            </div>
+              <div className={styles.sub}>Аккаунт верифицирован через ЕСИА</div>
+            </>
           )}
         </div>
 
