@@ -38,7 +38,7 @@
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  color: var(--text);
+  color: inherit;
   opacity: 0;
   transition: opacity 0.12s, background 0.12s;
 }
@@ -48,7 +48,6 @@
 }
 .th.active .arrow {
   opacity: 1;
-  color: var(--text);
 }
 .th.desc .arrow svg {
   transform: rotate(180deg);
