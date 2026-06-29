@@ -26,6 +26,7 @@ export function GosRedirectPage() {
 
   return (
     <div className={styles.auth}>
+      <img className={styles.topLogo} src="/logo.svg" alt="Timeweb" />
       <div className={`${styles.card} ${styles.center}`}>
         <Spinner />
         <div className={styles.loadTitle}>Переход на Госуслуги</div>

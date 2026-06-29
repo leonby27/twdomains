@@ -24,8 +24,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
   padding: 48px 30px;
+}
+.center .loadTitle {
+  margin-top: 8px;
 }
 .brand {
   display: flex;
