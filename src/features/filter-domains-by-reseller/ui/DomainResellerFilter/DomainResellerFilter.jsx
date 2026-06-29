@@ -1,5 +1,11 @@
 import { useUnit } from 'effector-react'
-import { $reseller, resellerSelected, ALL, $presentResellers } from '../../model/filter.js'
+import {
+  $reseller,
+  resellerSelected,
+  ALL,
+  MOCK_EMPTY,
+  $presentResellers,
+} from '../../model/filter.js'
 import styles from './DomainResellerFilter.module.css'
 
 // Чипы-фильтр по реселлеру.
@@ -14,17 +20,19 @@ export function DomainResellerFilter() {
 
   if (present.length <= 1) return null
 
-  const chips = [ALL, ...present]
+  // MOCK_EMPTY — демо-таб для проверки заглушки «нет доменов».
+  const chips = [ALL, ...present, MOCK_EMPTY]
+  const label = (c) => (c === ALL ? 'Все домены' : c === MOCK_EMPTY ? 'мок: нет доменов' : c)
 
   return (
     <div className={styles.chips}>
       {chips.map((c) => (
         <button
           key={c}
-          className={`${styles.chip} ${reseller === c ? styles.active : ''}`}
+          className={`${styles.chip} ${reseller === c ? styles.active : ''} ${c === MOCK_EMPTY ? styles.mock : ''}`}
           onClick={() => onSelect(c)}
         >
-          {c === ALL ? 'Все домены' : c}
+          {label(c)}
         </button>
       ))}
     </div>

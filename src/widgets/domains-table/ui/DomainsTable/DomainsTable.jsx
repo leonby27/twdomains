@@ -2,8 +2,10 @@ import { useUnit } from 'effector-react'
 import { DomainRow } from '@/entities/domain'
 import { openDomainDetails } from '@/features/domain-details'
 import { $sort, sortToggled } from '@/features/sort-domains'
+import { $reseller, MOCK_EMPTY } from '@/features/filter-domains-by-reseller'
 import { Spinner } from '@/shared/ui/Spinner'
-import { IconArrowUp } from '@/shared/ui/Icon'
+import { EmptyState } from '@/shared/ui/EmptyState'
+import { IconArrowUp, IconGlobe } from '@/shared/ui/Icon'
 import { useIncrementalList } from '@/shared/lib/useIncrementalList'
 import { $visibleDomains } from '../../model/domainsTable.js'
 import styles from './DomainsTable.module.css'
@@ -18,13 +20,27 @@ const COLUMNS = [
 // Таблица доменов: сортируемые заголовки + строки. Данные — из $visibleDomains.
 // Первые 30 строк, остальное догружается при скролле (имитация).
 export function DomainsTable() {
-  const [domains, sort, onSort, openDetails] = useUnit([
+  const [domains, sort, onSort, openDetails, reseller] = useUnit([
     $visibleDomains,
     $sort,
     sortToggled,
     openDomainDetails,
+    $reseller,
   ])
   const { visible, hasMore, sentinelRef } = useIncrementalList(domains, 30)
+
+  // Демо-таб «нет доменов» — показываем заглушку вместо таблицы.
+  if (reseller === MOCK_EMPTY) {
+    return (
+      <div className={styles.table}>
+        <EmptyState
+          icon={<IconGlobe width="28" height="28" />}
+          title="Доменов пока нет"
+          text="Здесь появятся ваши верифицированные домены."
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={styles.table}>

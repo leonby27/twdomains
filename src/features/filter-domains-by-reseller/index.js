@@ -3,6 +3,7 @@ export {
   resellerSelected,
   filterReset,
   ALL,
+  MOCK_EMPTY,
   $presentResellers,
   $canFilter,
 } from './model/filter.js'

@@ -1,5 +1,6 @@
 .auth {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,4 +77,9 @@
 .loadSub {
   color: var(--muted);
   font-size: 14px;
+}
+@media (max-width: 760px) {
+  .title {
+    font-size: 20px;
+  }
 }

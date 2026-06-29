@@ -23,6 +23,10 @@
   transform: translateX(100%);
   transition: transform 0.25s ease;
   box-shadow: -10px 0 40px rgba(27, 54, 74, 0.15);
+  /* Слой композитора: тяжёлая размытая тень растрируется один раз, а не
+     перерисовывается каждый кадр — иначе слайд на мобильных дёргается. */
+  will-change: transform;
+  backface-visibility: hidden;
 }
 .open .panel {
   transform: none;

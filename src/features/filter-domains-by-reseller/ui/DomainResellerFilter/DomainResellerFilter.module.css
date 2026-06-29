@@ -31,6 +31,18 @@
 .active:hover {
   box-shadow: 0 6px 16px rgba(71, 76, 238, 0.32);
 }
+/* Демо-таб — пунктирная рамка, чтобы отличался от боевых фильтров. */
+.mock {
+  background: transparent;
+  border: 1px dashed var(--line-2);
+  color: var(--muted);
+  padding: 7px 11px;
+}
+.mock.active {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .chip {

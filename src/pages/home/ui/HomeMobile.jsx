@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useUnit } from 'effector-react'
 import { DomainRowMobile } from '@/entities/domain'
-import { DomainResellerFilter, $canFilter } from '@/features/filter-domains-by-reseller'
+import { DomainResellerFilter, $canFilter, $reseller, MOCK_EMPTY } from '@/features/filter-domains-by-reseller'
 import { DomainSearch } from '@/features/search-domains'
 import { GenerateCodeButton } from '@/features/generate-code'
 import { openDomainDetails } from '@/features/domain-details'
 import { $visibleDomains } from '@/widgets/domains-table'
 import { Faq } from '@/widgets/faq'
-import { IconFilter, IconSearch } from '@/shared/ui/Icon'
+import { IconFilter, IconSearch, IconGlobe } from '@/shared/ui/Icon'
+import { EmptyState } from '@/shared/ui/EmptyState'
 import { Spinner } from '@/shared/ui/Spinner'
 import { useIncrementalList } from '@/shared/lib/useIncrementalList'
 import styles from './HomeMobile.module.css'
@@ -15,10 +16,11 @@ import styles from './HomeMobile.module.css'
 // Мобильный вид: карточка кода сверху, заголовок с иконками фильтра/поиска,
 // компактный список доменов, FAQ.
 export function HomeMobile() {
-  const [domains, openDetails, canFilter] = useUnit([
+  const [domains, openDetails, canFilter, reseller] = useUnit([
     $visibleDomains,
     openDomainDetails,
     $canFilter,
+    $reseller,
   ])
   const [openFilter, setOpenFilter] = useState(false)
   const [openSearch, setOpenSearch] = useState(false)
@@ -59,7 +61,13 @@ export function HomeMobile() {
         </div>
       )}
 
-      {domains.length === 0 ? (
+      {reseller === MOCK_EMPTY ? (
+        <EmptyState
+          icon={<IconGlobe width="28" height="28" />}
+          title="Доменов пока нет"
+          text="Здесь появятся ваши верифицированные домены."
+        />
+      ) : domains.length === 0 ? (
         <div className={styles.empty}>Ничего не найдено</div>
       ) : (
         <div className={styles.list}>
@@ -68,7 +76,7 @@ export function HomeMobile() {
           ))}
         </div>
       )}
-      {hasMore && (
+      {reseller !== MOCK_EMPTY && hasMore && (
         <div className={styles.loader} ref={sentinelRef}>
           <Spinner size={24} gray />
         </div>

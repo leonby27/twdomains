@@ -3,6 +3,9 @@ import { $domains } from '@/entities/domain'
 import { RESELLERS } from '@/shared/api/domainsApi'
 
 export const ALL = 'all'
+// Демо-таб: ни один домен не имеет такого реселлера → список пуст,
+// показываем заглушку «нет доменов».
+export const MOCK_EMPTY = 'mock:empty'
 
 export const resellerSelected = createEvent()
 export const filterReset = createEvent()
