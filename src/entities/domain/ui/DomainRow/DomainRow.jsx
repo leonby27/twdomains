@@ -16,7 +16,7 @@ export function DomainRow({ domain, onClick }) {
       <span>
         <DateBadge date={domain.paidUntil} status={domain.dateStatus} />
       </span>
-      <span>
+      <span className={styles.reseller}>
         <ResellerTag reseller={domain.reseller} />
       </span>
       <IconChevronRight className={styles.chev} width="20" height="20" />

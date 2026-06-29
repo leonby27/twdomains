@@ -1,5 +1,7 @@
-.search {
+.wrap {
   margin-top: 16px;
+}
+.search {
   height: 44px;
   background: var(--surface);
   border-radius: var(--r-sm);
@@ -25,4 +27,22 @@
 .input::placeholder {
   color: var(--muted);
   font-weight: 400;
+}
+.hint {
+  margin: 8px 0 0;
+  padding: 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.fix {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent, #6c5ce7);
+  font-weight: 500;
+  cursor: pointer;
+}
+.fix:hover {
+  text-decoration: underline;
 }

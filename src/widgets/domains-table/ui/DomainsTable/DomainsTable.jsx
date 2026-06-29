@@ -36,10 +36,15 @@ export function DomainsTable() {
           return (
             <button
               key={c.field}
-              className={`${styles.th} ${active ? styles.active : ''} ${desc ? styles.desc : ''}`}
+              className={`${styles.th} ${c.field === 'reseller' ? styles.thReseller : ''} ${active ? styles.active : ''} ${desc ? styles.desc : ''}`}
               onClick={() => onSort(c.field)}
             >
-              <span>{c.label}</span>
+              <span>
+                {c.label}
+                {c.field === 'name' && (
+                  <span className={styles.count}> · {domains.length}</span>
+                )}
+              </span>
               <span className={styles.arrow} data-tip={tip}>
                 <IconArrowUp width="16" height="16" />
               </span>

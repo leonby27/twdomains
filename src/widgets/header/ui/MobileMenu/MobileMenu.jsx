@@ -1,3 +1,5 @@
+import { ThemeSwitch } from '@/features/theme-switch'
+import { asset } from '@/shared/lib/asset'
 import styles from './MobileMenu.module.css'
 
 // Off-canvas меню (правая панель): по центру — блок пользователя, внизу — выход.
@@ -10,8 +12,12 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
       aria-hidden={!open}
     >
       <aside className={styles.panel} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.theme}>
+          <ThemeSwitch />
+        </div>
+
         <div className={styles.user}>
-          <img className={styles.gos} src="/gos.svg" alt="Госуслуги" width="64" height="64" />
+          <img className={styles.gos} src={asset('/gos.svg')} alt="Госуслуги" width="64" height="64" />
           {user && (
             <>
               <div className={styles.name}>
@@ -19,7 +25,7 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
                 {user.esiaVerified && (
                   <img
                     className={styles.verified}
-                    src="/verified.svg"
+                    src={asset('/verified.svg')}
                     alt="Верифицирован через ЕСИА"
                     width="16"
                     height="16"
@@ -32,7 +38,7 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
         </div>
 
         <button className={styles.logout} onClick={onLogout}>
-          <img src="/logout.svg" alt="" width="20" height="20" />
+          <img src={asset('/logout.svg')} alt="" width="20" height="20" />
           Выйти из аккаунта
         </button>
       </aside>

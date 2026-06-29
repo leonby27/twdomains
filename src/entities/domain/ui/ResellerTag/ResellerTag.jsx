@@ -1,9 +1,13 @@
-import { RESELLER_ICONS } from '@/shared/api/domainsApi'
+import { useUnit } from 'effector-react'
+import { $theme } from '@/features/theme-switch'
+import { RESELLER_ICONS, RESELLER_ICONS_DARK } from '@/shared/api/domainsApi'
 import styles from './ResellerTag.module.css'
 
 // Чип регистратора: иконка (если есть) + название.
 export function ResellerTag({ reseller }) {
-  const icon = RESELLER_ICONS[reseller]
+  const theme = useUnit($theme)
+  const icon =
+    (theme === 'dark' && RESELLER_ICONS_DARK[reseller]) || RESELLER_ICONS[reseller]
   return (
     <span className={styles.reseller}>
       {icon ? (

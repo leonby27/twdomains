@@ -1,0 +1,36 @@
+/* Сегментированный переключатель темы (макет: Small Tab). */
+.tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  background: var(--under-bg);
+  border-radius: 12px;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.tab:hover {
+  color: var(--text-2);
+}
+.tab svg {
+  display: block;
+}
+.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(5, 11, 38, 0.08);
+}
+.active:hover {
+  color: var(--text);
+}

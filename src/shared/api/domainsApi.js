@@ -1,11 +1,18 @@
 // МОК-API доменов. Граница для реальной интеграции:
 // разработчики заменят это на агрегацию доменов по ЕСИА-id через API реселлеров.
+import { asset } from '@/shared/lib/asset'
 
 // Иконки регистраторов (из public/). Нет иконки → запасной кружок в UI.
 export const RESELLER_ICONS = {
-  'Timeweb Хостинг': '/reg-hosting.svg',
-  'Timeweb Cloud': '/reg-cloud.svg',
-  Craftum: '/craftum.svg',
+  'Timeweb Хостинг': asset('/reg-hosting.svg'),
+  'Timeweb Cloud': asset('/reg-cloud.svg'),
+  Craftum: asset('/craftum.svg'),
+}
+
+// Тёмная тема: переопределения иконок, которые иначе сливаются с фоном.
+// Логотипы Timeweb остаются цветными и читаются в обеих темах.
+export const RESELLER_ICONS_DARK = {
+  Craftum: asset('/craftum-dark.svg'),
 }
 
 // Реселлеры для фильтра. Порядок как в макете.

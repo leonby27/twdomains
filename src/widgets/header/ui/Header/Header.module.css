@@ -8,7 +8,7 @@
   box-shadow: 0 2px 8px rgba(5, 11, 38, 0.04);
 }
 .inner {
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
   min-height: 76px;
   display: flex;
@@ -64,13 +64,17 @@
 .logout:hover img {
   opacity: 0.7;
 }
+/* Тёмный монохромный SVG нечитаем на тёмном фоне — осветляем. */
+[data-theme='dark'] .logout img {
+  filter: brightness(0) invert(0.72);
+}
 .logout::after {
   content: attr(data-tip);
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
   background: var(--text);
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
   font-weight: 500;
   line-height: 1;

@@ -30,6 +30,19 @@
 .th:hover {
   color: var(--text);
 }
+/* Счётчик доменов в заголовке «Домен» (меняется при фильтрации/поиске). */
+.count {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+/* По ховеру заголовка точка-глиф и число тоже подсвечиваются (как метка). */
+.th:hover .count {
+  color: var(--text);
+}
+/* Заголовок «Регистратор» сдвинут тем же отступом, что и ячейки строк. */
+.thReseller {
+  padding-left: 64px;
+}
 .arrow {
   position: relative;
   display: inline-flex;
@@ -60,7 +73,7 @@
   left: 50%;
   transform: translateX(-50%);
   background: var(--text);
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
   font-weight: 500;
   line-height: 1;

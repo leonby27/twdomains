@@ -1,5 +1,6 @@
 import { useUnit } from 'effector-react'
 import { IconChevronRight } from '@/shared/ui/Icon'
+import { asset } from '@/shared/lib/asset'
 import { openCodeModal } from '../../model/modal.js'
 import styles from './GenerateCodeButton.module.css'
 
@@ -9,7 +10,7 @@ export function GenerateCodeButton() {
   return (
     <button className={styles.gencode} onClick={() => open()}>
       <span className={styles.ic}>
-        <img src="/lock.svg" alt="" width="24" height="24" />
+        <img src={asset('/lock.svg')} alt="" width="24" height="24" />
       </span>
       <span className={styles.body}>
         <span className={styles.title}>Сгенерировать код</span>

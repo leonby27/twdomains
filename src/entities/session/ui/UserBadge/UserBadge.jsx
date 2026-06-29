@@ -1,3 +1,4 @@
+import { asset } from '@/shared/lib/asset'
 import styles from './UserBadge.module.css'
 
 // Имя пользователя + значок верификации ЕСИА + подпись.
@@ -10,7 +11,7 @@ export function UserBadge({ user }) {
         {user.esiaVerified && (
           <img
             className={styles.verified}
-            src="/verified.svg"
+            src={asset('/verified.svg')}
             alt="Верифицирован через ЕСИА"
             width="18"
             height="18"

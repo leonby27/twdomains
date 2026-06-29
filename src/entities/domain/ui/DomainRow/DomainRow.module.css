@@ -19,7 +19,7 @@
   border-bottom: none;
 }
 .row:hover {
-  background: #fafbfc;
+  background: var(--row-hover);
 }
 .domain {
   display: flex;
@@ -31,7 +31,7 @@
   width: 40px;
   height: 40px;
   border-radius: 100px;
-  background: var(--bg);
+  background: var(--chip);
   color: var(--text);
   display: flex;
   align-items: center;
@@ -46,6 +46,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+/* Колонка «Регистратор» сдвинута вправо отступом (не к самому краю). */
+.reseller {
+  padding-left: 64px;
 }
 .chev {
   color: var(--muted);
