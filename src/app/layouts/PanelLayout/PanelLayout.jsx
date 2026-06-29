@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { Header } from '@/widgets/header'
 import { CodeModal } from '@/features/generate-code'
 import { LogoutConfirmModal } from '@/features/logout'
+import { DomainDetailsModal } from '@/features/domain-details'
 import styles from './PanelLayout.module.css'
 
 // Каркас авторизованных страниц: шапка + контентный контейнер (+ опц. «Назад»).
@@ -20,6 +21,7 @@ export function PanelLayout({ children, back }) {
       </main>
       <CodeModal />
       <LogoutConfirmModal />
+      <DomainDetailsModal />
     </div>
   )
 }

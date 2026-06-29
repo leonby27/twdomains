@@ -3,7 +3,6 @@ import { useUnit } from 'effector-react'
 import { $isAuthed } from '@/entities/session'
 import { LoginPage, GosRedirectPage } from '@/pages/login'
 import { HomePage } from '@/pages/home'
-import { DomainDetailPage } from '@/pages/domain-detail'
 import { ROUTES } from '@/shared/config/routes'
 import { PanelLayout } from './layouts/PanelLayout/PanelLayout.jsx'
 
@@ -29,14 +28,7 @@ export function App() {
         }
       />
       <Route path="/domains" element={<Navigate to={ROUTES.home} replace />} />
-      <Route
-        path={ROUTES.domain()}
-        element={
-          <Protected back={ROUTES.home}>
-            <DomainDetailPage />
-          </Protected>
-        }
-      />
+      <Route path={ROUTES.domain()} element={<Navigate to={ROUTES.home} replace />} />
       <Route path={ROUTES.code} element={<Navigate to={ROUTES.home} replace />} />
       <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
     </Routes>

@@ -1,21 +1,19 @@
 import { useState } from 'react'
 import { useUnit } from 'effector-react'
-import { useNavigate } from 'react-router-dom'
 import { DomainRowMobile } from '@/entities/domain'
 import { DomainResellerFilter } from '@/features/filter-domains-by-reseller'
 import { DomainSearch } from '@/features/search-domains'
 import { GenerateCodeButton } from '@/features/generate-code'
+import { openDomainDetails } from '@/features/domain-details'
 import { $visibleDomains } from '@/widgets/domains-table'
 import { Faq } from '@/widgets/faq'
 import { IconFilter, IconSearch } from '@/shared/ui/Icon'
-import { ROUTES } from '@/shared/config/routes'
 import styles from './HomeMobile.module.css'
 
 // Мобильный вид: карточка кода сверху, заголовок с иконками фильтра/поиска,
 // компактный список доменов, FAQ.
 export function HomeMobile() {
-  const navigate = useNavigate()
-  const domains = useUnit($visibleDomains)
+  const [domains, openDetails] = useUnit([$visibleDomains, openDomainDetails])
   const [openFilter, setOpenFilter] = useState(false)
   const [openSearch, setOpenSearch] = useState(false)
 
@@ -57,11 +55,7 @@ export function HomeMobile() {
       ) : (
         <div className={styles.list}>
           {domains.map((d) => (
-            <DomainRowMobile
-              key={d.name}
-              domain={d}
-              onClick={() => navigate(ROUTES.domain(encodeURIComponent(d.name)))}
-            />
+            <DomainRowMobile key={d.name} domain={d} onClick={() => openDetails(d.name)} />
           ))}
         </div>
       )}

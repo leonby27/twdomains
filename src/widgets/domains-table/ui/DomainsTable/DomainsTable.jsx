@@ -1,14 +1,12 @@
 import { useUnit } from 'effector-react'
-import { useNavigate } from 'react-router-dom'
 import { DomainRow } from '@/entities/domain'
-import { ROUTES } from '@/shared/config/routes'
+import { openDomainDetails } from '@/features/domain-details'
 import { $visibleDomains } from '../../model/domainsTable.js'
 import styles from './DomainsTable.module.css'
 
 // Таблица доменов: шапка колонок + строки. Данные — из $visibleDomains.
 export function DomainsTable() {
-  const domains = useUnit($visibleDomains)
-  const navigate = useNavigate()
+  const [domains, openDetails] = useUnit([$visibleDomains, openDomainDetails])
 
   return (
     <div className={styles.table}>
@@ -23,11 +21,7 @@ export function DomainsTable() {
           <div className={styles.empty}>Ничего не найдено</div>
         ) : (
           domains.map((d) => (
-            <DomainRow
-              key={d.name}
-              domain={d}
-              onClick={() => navigate(ROUTES.domain(encodeURIComponent(d.name)))}
-            />
+            <DomainRow key={d.name} domain={d} onClick={() => openDetails(d.name)} />
           ))
         )}
       </div>
