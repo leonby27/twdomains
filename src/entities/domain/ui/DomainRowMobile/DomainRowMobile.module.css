@@ -21,6 +21,11 @@
   border-bottom-left-radius: var(--r);
   border-bottom-right-radius: var(--r);
 }
+.icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
 .globe {
   width: 40px;
   height: 40px;

@@ -69,6 +69,12 @@ export const IconFilter = (p) => (
   </svg>
 )
 
+export const IconArrowUp = (p) => (
+  <svg {...base} {...p}>
+    <path d="M12 19V5M6 11l6-6 6 6" />
+  </svg>
+)
+
 // Сплошной кружок с «!» — статус «истекает» (оранжевый в макете).
 export const IconAlert = (p) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...p}>

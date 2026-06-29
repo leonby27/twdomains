@@ -13,8 +13,68 @@
   font-size: 14px;
   color: var(--text-2);
 }
-.head span:nth-child(3) {
-  text-align: left;
+/* Заголовок-кнопка сортировки */
+.th {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  justify-self: start;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.th:hover {
+  color: var(--text);
+}
+.arrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity 0.12s, background 0.12s;
+}
+.th:hover .arrow {
+  opacity: 1;
+  background: var(--bg);
+}
+.th.active .arrow {
+  opacity: 1;
+  color: var(--text);
+}
+.th.desc .arrow svg {
+  transform: rotate(180deg);
+}
+/* Тёмный тултип над стрелкой */
+.arrow::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 9px;
+  border-radius: 7px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s;
+  z-index: 30;
+}
+.th:hover .arrow::after {
+  opacity: 1;
 }
 .body {
   background: var(--surface);
