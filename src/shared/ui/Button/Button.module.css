@@ -30,7 +30,7 @@
   color: var(--accent-600);
 }
 .soft:hover {
-  background: #d2e4f2;
+  background: #d8dafb;
 }
 .ghost {
   background: var(--surface);

@@ -29,7 +29,7 @@
   color: #fff;
 }
 .active:hover {
-  box-shadow: 0 6px 16px rgba(41, 119, 181, 0.32);
+  box-shadow: 0 6px 16px rgba(71, 76, 238, 0.32);
 }
 
 @media (prefers-reduced-motion: reduce) {
