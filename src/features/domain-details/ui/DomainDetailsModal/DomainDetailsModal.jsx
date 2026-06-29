@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { useUnit } from 'effector-react'
-import { $domains, selectDomainByName, DateBadge } from '@/entities/domain'
-import { $user } from '@/entities/session'
-import { openCodeModal } from '@/features/generate-code'
+import { $domains, selectDomainByName } from '@/entities/domain'
 import { Button } from '@/shared/ui/Button'
 import { IconGlobe } from '@/shared/ui/Icon'
 import {
@@ -14,13 +12,11 @@ import styles from './DomainDetailsModal.module.css'
 
 // Модалка детали домена: реселлер, срок, администратор, размещение + действия.
 export function DomainDetailsModal() {
-  const [open, name, domains, user, close, openCode] = useUnit([
+  const [open, name, domains, close] = useUnit([
     $domainDetailsOpen,
     $selectedDomainName,
     $domains,
-    $user,
     closeDomainDetails,
-    openCodeModal,
   ])
 
   useEffect(() => {
@@ -43,12 +39,9 @@ export function DomainDetailsModal() {
 
         <div className={styles.head}>
           <span className={styles.ic}>
-            <IconGlobe width="26" height="26" />
+            <IconGlobe width="20" height="20" />
           </span>
-          <div>
-            <div className={styles.name}>{domain.name}</div>
-            <DateBadge date={domain.paidUntil} status={domain.dateStatus} prefix="Оплачен до" />
-          </div>
+          <div className={styles.name}>{domain.name}</div>
         </div>
 
         <dl className={styles.kv}>
@@ -61,10 +54,6 @@ export function DomainDetailsModal() {
             <dd>{domain.paidUntil}</dd>
           </div>
           <div className={styles.row}>
-            <dt>Администратор</dt>
-            <dd>{user?.fullName} · ЕСИА</dd>
-          </div>
-          <div className={styles.row}>
             <dt>Размещение</dt>
             <dd>{domain.hosting}</dd>
           </div>
@@ -73,19 +62,6 @@ export function DomainDetailsModal() {
         <div className={styles.actions}>
           <Button variant="soft" block>
             Открыть в ЛК реселлера
-          </Button>
-          <Button variant="ghost" block>
-            Продлить домен
-          </Button>
-          <Button
-            variant="ghost"
-            block
-            onClick={() => {
-              close()
-              openCode()
-            }}
-          >
-            Сгенерировать код верификации
           </Button>
         </div>
       </div>
