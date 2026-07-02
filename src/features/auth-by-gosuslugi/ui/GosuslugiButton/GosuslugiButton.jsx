@@ -4,12 +4,13 @@ import { asset } from '@/shared/lib/asset'
 import { ROUTES } from '@/shared/config/routes'
 
 // Кнопка входа: ведёт на экран перехода в Госуслуги (где запускается loginFx).
-export function GosuslugiButton() {
+export function GosuslugiButton({ disabled = false }) {
   const navigate = useNavigate()
   return (
     <Button
       variant="ghost"
       block
+      disabled={disabled}
       style={{ fontWeight: 500 }}
       onClick={() => navigate(ROUTES.gosuslugi)}
     >

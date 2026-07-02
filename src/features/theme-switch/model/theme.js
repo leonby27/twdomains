@@ -1,18 +1,10 @@
 import { createStore, createEvent } from 'effector'
 
-// Тема оформления: light | dark. Сохраняется в localStorage между сессиями.
+// Тема оформления: light | dark. Переключатель скрыт — всегда светлая;
+// сохранённое в localStorage значение игнорируется.
 export const STORAGE_KEY = 'tw-theme'
 
-const readStored = () => {
-  try {
-    const v = localStorage.getItem(STORAGE_KEY)
-    return v === 'dark' || v === 'light' ? v : null
-  } catch {
-    return null
-  }
-}
-
-const initial = readStored() ?? 'light'
+const initial = 'light'
 
 export const themeSet = createEvent() // payload: 'light' | 'dark'
 export const themeToggled = createEvent()

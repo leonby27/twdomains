@@ -15,6 +15,11 @@
 .btn:active {
   transform: scale(0.98);
 }
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 .block {
   width: 100%;
 }
@@ -24,6 +29,13 @@
 }
 .gos:hover {
   background: #0a3fb0;
+}
+.accent {
+  background: var(--accent);
+  color: #fff;
+}
+.accent:hover {
+  background: var(--accent-600);
 }
 .soft {
   background: var(--accent-bg);

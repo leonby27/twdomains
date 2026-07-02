@@ -1,5 +1,6 @@
-import { ThemeSwitch } from '@/features/theme-switch'
+import { EsiaDetails } from '@/entities/session'
 import { asset } from '@/shared/lib/asset'
+import { IconLogout } from '@/shared/ui/Icon'
 import styles from './MobileMenu.module.css'
 
 // Bottom sheet меню: выезжает снизу. Сверху — хваталка и переключатель темы,
@@ -13,10 +14,6 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
     >
       <aside className={styles.panel} onClick={(e) => e.stopPropagation()}>
         <div className={styles.grabber} />
-
-        <div className={styles.theme}>
-          <ThemeSwitch />
-        </div>
 
         <div className={styles.user}>
           <img className={styles.gos} src={asset('/gos.svg')} alt="Госуслуги" width="64" height="64" />
@@ -35,12 +32,15 @@ export function MobileMenu({ open, onClose, user, onLogout }) {
                 )}
               </div>
               <div className={styles.sub}>Аккаунт верифицирован через ЕСИА</div>
+              <div className={styles.details}>
+                <EsiaDetails user={user} />
+              </div>
             </>
           )}
         </div>
 
         <button className={styles.logout} onClick={onLogout}>
-          <img src={asset('/logout.svg')} alt="" width="20" height="20" />
+          <IconLogout width="20" height="20" />
           Выйти из аккаунта
         </button>
       </aside>

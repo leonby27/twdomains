@@ -2,10 +2,11 @@ import { asset } from '@/shared/lib/asset'
 import styles from './UserBadge.module.css'
 
 // Имя пользователя + значок верификации ЕСИА + подпись.
-export function UserBadge({ user }) {
+// С onClick становится кнопкой (открытие профиля из шапки).
+export function UserBadge({ user, onClick }) {
   if (!user) return null
-  return (
-    <div className={styles.user}>
+  const content = (
+    <>
       <div className={styles.name}>
         {user.name}
         {user.esiaVerified && (
@@ -19,6 +20,14 @@ export function UserBadge({ user }) {
         )}
       </div>
       <div className={styles.sub}>Верифицирован через ЕСИА</div>
-    </div>
+    </>
   )
+  if (onClick) {
+    return (
+      <button type="button" className={`${styles.user} ${styles.clickable}`} onClick={onClick}>
+        {content}
+      </button>
+    )
+  }
+  return <div className={styles.user}>{content}</div>
 }

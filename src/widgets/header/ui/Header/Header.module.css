@@ -23,9 +23,10 @@
   gap: 4px;
   text-decoration: none;
 }
+/* Новый лого длинный (202×20) — чуть меньше нативной высоты, ширина по пропорции. */
 .logo {
-  height: 24px;
-  width: 115px;
+  height: 18px;
+  width: auto;
   display: block;
 }
 .caption {

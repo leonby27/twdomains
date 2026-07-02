@@ -4,6 +4,19 @@
   gap: 2px;
   text-align: left;
 }
+.clickable {
+  border: none;
+  background: none;
+  padding: 6px 10px;
+  margin: -6px -10px;
+  border-radius: var(--r-chip);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.clickable:hover {
+  background: var(--bg);
+}
 .name {
   display: flex;
   align-items: center;

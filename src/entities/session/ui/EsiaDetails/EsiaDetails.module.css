@@ -1,0 +1,27 @@
+.wrap {
+  width: 100%;
+}
+.list {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+}
+/* Отдельные скруглённые ячейки. Лейбл над значением:
+   длинные строки («кем выдан») не ломают сетку. */
+.row {
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+}
+.row dt {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.row dd {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text);
+}

@@ -7,9 +7,10 @@
   padding: 40px 18px;
 }
 .topLogo {
-  height: 28px;
+  height: 20px;
   width: auto;
   display: block;
+  max-width: 100%;
 }
 .card {
   background: var(--surface);
@@ -60,6 +61,32 @@
   color: var(--muted);
   font-size: 14px;
   margin-bottom: 18px;
+}
+.consent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+.consent input {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.consent a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.consent a:hover {
+  text-decoration: underline;
 }
 .foot {
   display: flex;

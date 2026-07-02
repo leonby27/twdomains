@@ -3,6 +3,7 @@ import { useUnit } from 'effector-react'
 import { Header } from '@/widgets/header'
 import { CodeModal } from '@/features/generate-code'
 import { LogoutConfirmModal } from '@/features/logout'
+import { ProfileModal } from '@/features/profile'
 import { DomainDetailsModal } from '@/features/domain-details'
 import { $reloadKey } from '@/shared/model/reload'
 import styles from './PanelLayout.module.css'
@@ -28,6 +29,7 @@ export function PanelLayout({ children, back }) {
       </main>
       <CodeModal />
       <LogoutConfirmModal />
+      <ProfileModal />
       <DomainDetailsModal />
     </div>
   )

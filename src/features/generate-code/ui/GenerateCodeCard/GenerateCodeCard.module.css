@@ -1,0 +1,32 @@
+.card {
+  background: var(--surface);
+  border-radius: var(--r);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--chip);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--text);
+}
+.text {
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--text-2);
+  margin: 2px 0 14px;
+  max-width: 320px;
+}

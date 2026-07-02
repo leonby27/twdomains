@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { useUnit } from 'effector-react'
 import { $user, UserBadge } from '@/entities/session'
 import { openLogoutModal } from '@/features/logout'
-import { ThemeSwitch, $theme } from '@/features/theme-switch'
+import { openProfileModal } from '@/features/profile'
+import { $theme } from '@/features/theme-switch'
 import { reloadRequested } from '@/shared/model/reload'
 import { asset } from '@/shared/lib/asset'
 import { IconBurger } from '@/shared/ui/Icon'
@@ -14,9 +15,10 @@ import styles from './Header.module.css'
 // Шапка панели: логотип + подпись · разделитель │ Госуслуги │ пользователь · выход.
 // На мобильном — бургер, открывающий off-canvas меню.
 export function Header() {
-  const [user, openLogout, theme, reload] = useUnit([
+  const [user, openLogout, openProfile, theme, reload] = useUnit([
     $user,
     openLogoutModal,
+    openProfileModal,
     $theme,
     reloadRequested,
   ])
@@ -55,13 +57,11 @@ export function Header() {
         </Link>
 
         <div className={styles.right}>
-          <ThemeSwitch />
-
           <span className={styles.gos} title="ЕСИА · Госуслуги">
             <img src={asset('/gos.svg')} alt="Госуслуги" width="32" height="32" />
           </span>
 
-          <UserBadge user={user} />
+          <UserBadge user={user} onClick={openProfile} />
 
           <button
             className={styles.logout}

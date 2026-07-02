@@ -3,7 +3,7 @@ import { useUnit } from 'effector-react'
 import { DomainRowMobile } from '@/entities/domain'
 import { DomainResellerFilter, $canFilter, $reseller, MOCK_EMPTY } from '@/features/filter-domains-by-reseller'
 import { DomainSearch } from '@/features/search-domains'
-import { GenerateCodeButton } from '@/features/generate-code'
+import { GenerateCodeCard } from '@/features/generate-code'
 import { openDomainDetails } from '@/features/domain-details'
 import { $visibleDomains } from '@/widgets/domains-table'
 import { Faq } from '@/widgets/faq'
@@ -28,7 +28,7 @@ export function HomeMobile() {
 
   return (
     <>
-      <GenerateCodeButton />
+      <GenerateCodeCard />
 
       <div className={styles.bar}>
         <h1 className={styles.title}>Мои домены</h1>

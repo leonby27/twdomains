@@ -69,6 +69,13 @@ export const IconFilter = (p) => (
   </svg>
 )
 
+export const IconLogout = (p) => (
+  <svg {...base} {...p}>
+    <path d="M13 4H8a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h5" />
+    <path d="m17 8 4 4-4 4M21 12H9" />
+  </svg>
+)
+
 export const IconArrowUp = (p) => (
   <svg {...base} {...p}>
     <path d="M12 19V5M6 11l6-6 6 6" />

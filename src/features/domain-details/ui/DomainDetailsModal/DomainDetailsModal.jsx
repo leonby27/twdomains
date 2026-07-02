@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useUnit } from 'effector-react'
 import { $domains, selectDomainByName } from '@/entities/domain'
-import { Button } from '@/shared/ui/Button'
 import { IconGlobe } from '@/shared/ui/Icon'
 import {
   $selectedDomainName,
@@ -58,12 +57,6 @@ export function DomainDetailsModal() {
             <dd>{domain.hosting}</dd>
           </div>
         </dl>
-
-        <div className={styles.actions}>
-          <Button variant="soft" block>
-            Открыть в ЛК реселлера
-          </Button>
-        </div>
       </div>
     </div>
   )
