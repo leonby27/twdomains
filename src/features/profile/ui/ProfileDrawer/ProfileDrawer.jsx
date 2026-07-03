@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useUnit } from 'effector-react'
 import { $user, EsiaDetails } from '@/entities/session'
-import { IconArrowLeft } from '@/shared/ui/Icon'
+import { IconArrowLeft, IconClose } from '@/shared/ui/Icon'
 import { reloadRequested } from '@/shared/model/reload'
 import { AccountView } from '../AccountView/AccountView.jsx'
 import { $profileModalOpen, closeProfileModal } from '../../model/profile.js'
@@ -39,6 +39,9 @@ export function ProfileDrawer() {
       aria-hidden={!open}
     >
       <aside className={styles.panel} onClick={(e) => e.stopPropagation()}>
+        <button className={styles.close} title="Закрыть" onClick={close}>
+          <IconClose width="22" height="22" />
+        </button>
         {details ? (
           <>
             <button className={styles.back} onClick={() => setDetails(false)}>
