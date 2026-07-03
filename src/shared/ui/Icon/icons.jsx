@@ -76,6 +76,19 @@ export const IconLogout = (p) => (
   </svg>
 )
 
+export const IconArrowLeft = (p) => (
+  <svg {...base} {...p}>
+    <path d="M19 12H5M11 18l-6-6 6-6" />
+  </svg>
+)
+
+export const IconUser = (p) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 21a8 8 0 0 1 16 0" />
+  </svg>
+)
+
 export const IconArrowUp = (p) => (
   <svg {...base} {...p}>
     <path d="M12 19V5M6 11l6-6 6 6" />

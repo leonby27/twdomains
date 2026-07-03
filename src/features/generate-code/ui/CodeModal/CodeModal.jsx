@@ -86,7 +86,7 @@ export function CodeModal() {
         ) : (
           <button className={`${styles.action} ${copied ? styles.copied : ''}`} onClick={copy}>
             {copied ? <IconCheck width="16" height="16" /> : <IconCopy width="16" height="16" />}
-            {copied ? 'Скопировано' : 'Скопировать код'}
+            {copied ? 'Скопировано' : 'Скопировать'}
           </button>
         )}
 

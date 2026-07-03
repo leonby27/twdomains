@@ -1,6 +1,6 @@
 /* --table-cols задаёт колонки и для шапки, и для строк (DomainRow наследует). */
 .table {
-  --table-cols: minmax(200px, 360px) 288px minmax(0, 1fr) 24px;
+  --table-cols: minmax(200px, 1fr) minmax(288px, 1fr);
   margin-top: 16px;
 }
 .head {
@@ -38,10 +38,6 @@
 /* По ховеру заголовка точка-глиф и число тоже подсвечиваются (как метка). */
 .th:hover .count {
   color: var(--text);
-}
-/* Заголовок «Регистратор» сдвинут тем же отступом, что и ячейки строк. */
-.thReseller {
-  padding-left: 64px;
 }
 .arrow {
   position: relative;

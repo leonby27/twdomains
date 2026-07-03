@@ -10,16 +10,11 @@
   background: var(--surface);
   border: none;
   border-bottom: 1px solid var(--line);
-  cursor: pointer;
   font: inherit;
   text-align: left;
-  transition: background 0.15s ease;
 }
 .row:last-child {
   border-bottom: none;
-}
-.row:hover {
-  background: var(--row-hover);
 }
 .domain {
   display: flex;
@@ -47,15 +42,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* Колонка «Регистратор» сдвинута вправо отступом (не к самому краю). */
-.reseller {
-  padding-left: 64px;
-}
-.chev {
-  color: var(--muted);
-  justify-self: end;
-}
-
 @media (max-width: 760px) {
   .row {
     display: flex;
@@ -68,10 +54,5 @@
   }
   .domain {
     flex: 1 1 100%;
-  }
-  .chev {
-    position: absolute;
-    right: 16px;
-    top: 18px;
   }
 }

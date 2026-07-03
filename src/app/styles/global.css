@@ -81,3 +81,62 @@ body {
 a {
   color: inherit;
 }
+
+/* ============================================================
+   Переходы между страницами (View Transitions API).
+   Шапка и таб-бар — свои именованные слои (не мигают), анимируется
+   только контент (name: page). По умолчанию — мягкий fade (вкладки),
+   при заходе/возврате — направленный slide (см. классы на <html>).
+   Браузеры без поддержки просто переходят мгновенно (graceful fallback).
+   ============================================================ */
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+}
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+@keyframes vt-in-from-right {
+  from { opacity: 0; transform: translateX(24px); }
+}
+@keyframes vt-out-to-left {
+  to { opacity: 0; transform: translateX(-24px); }
+}
+@keyframes vt-in-from-left {
+  from { opacity: 0; transform: translateX(-24px); }
+}
+@keyframes vt-out-to-right {
+  to { opacity: 0; transform: translateX(24px); }
+}
+
+/* База: контент плавно проявляется/исчезает (равноправные вкладки). */
+::view-transition-old(page) {
+  animation: vt-fade-out 180ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+::view-transition-new(page) {
+  animation: vt-fade-in 220ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+/* Заход вглубь: новая страница въезжает справа, старая уходит влево. */
+html.vt-forward::view-transition-old(page) {
+  animation: vt-out-to-left 240ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+html.vt-forward::view-transition-new(page) {
+  animation: vt-in-from-right 260ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+/* Возврат: зеркально — новая слева, старая уходит вправо. */
+html.vt-back::view-transition-old(page) {
+  animation: vt-out-to-right 240ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+html.vt-back::view-transition-new(page) {
+  animation: vt-in-from-left 260ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+/* Уважаем настройку «меньше движения» — отключаем анимации переходов. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

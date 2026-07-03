@@ -3,6 +3,7 @@ import { useUnit } from 'effector-react'
 import { $isAuthed } from '@/entities/session'
 import { LoginPage, GosRedirectPage } from '@/pages/login'
 import { HomePage } from '@/pages/home'
+import { AccountPage, PassportPage } from '@/pages/account'
 import { ROUTES } from '@/shared/config/routes'
 import { PanelLayout } from './layouts/PanelLayout/PanelLayout.jsx'
 
@@ -24,6 +25,22 @@ export function App() {
         element={
           <Protected>
             <HomePage />
+          </Protected>
+        }
+      />
+      <Route
+        path={ROUTES.account}
+        element={
+          <Protected>
+            <AccountPage />
+          </Protected>
+        }
+      />
+      <Route
+        path={ROUTES.passport}
+        element={
+          <Protected>
+            <PassportPage />
           </Protected>
         }
       />

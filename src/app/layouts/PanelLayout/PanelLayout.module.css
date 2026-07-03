@@ -2,11 +2,18 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 28px 20px 60px;
+  /* Именованный слой перехода: анимируется только контент, шапка/таб-бар — нет. */
+  view-transition-name: page;
 }
 
 @media (max-width: 760px) {
   .content {
-    padding: 12px 16px 48px;
+    /* Снизу — высота таб-бара (~66px) + зазор до контента + safe area. */
+    padding: 12px 16px calc(96px + env(safe-area-inset-bottom));
+  }
+  /* Страницы без таб-бара — обычный нижний отступ. */
+  .content.noTabBar {
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
   }
 }
 .back {

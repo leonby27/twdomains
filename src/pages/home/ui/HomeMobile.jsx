@@ -1,29 +1,18 @@
-import { useState } from 'react'
 import { useUnit } from 'effector-react'
 import { DomainRowMobile } from '@/entities/domain'
-import { DomainResellerFilter, $canFilter, $reseller, MOCK_EMPTY } from '@/features/filter-domains-by-reseller'
-import { DomainSearch } from '@/features/search-domains'
+import { $reseller, MOCK_EMPTY } from '@/features/filter-domains-by-reseller'
 import { GenerateCodeCard } from '@/features/generate-code'
-import { openDomainDetails } from '@/features/domain-details'
 import { $visibleDomains } from '@/widgets/domains-table'
 import { Faq } from '@/widgets/faq'
-import { IconFilter, IconSearch, IconGlobe } from '@/shared/ui/Icon'
+import { IconGlobe } from '@/shared/ui/Icon'
 import { EmptyState } from '@/shared/ui/EmptyState'
 import { Spinner } from '@/shared/ui/Spinner'
 import { useIncrementalList } from '@/shared/lib/useIncrementalList'
 import styles from './HomeMobile.module.css'
 
-// Мобильный вид: карточка кода сверху, заголовок с иконками фильтра/поиска,
-// компактный список доменов, FAQ.
+// Мобильный вид: карточка кода сверху, заголовок, компактный список доменов, FAQ.
 export function HomeMobile() {
-  const [domains, openDetails, canFilter, reseller] = useUnit([
-    $visibleDomains,
-    openDomainDetails,
-    $canFilter,
-    $reseller,
-  ])
-  const [openFilter, setOpenFilter] = useState(false)
-  const [openSearch, setOpenSearch] = useState(false)
+  const [domains, reseller] = useUnit([$visibleDomains, $reseller])
   const { visible, hasMore, sentinelRef } = useIncrementalList(domains, 30)
 
   return (
@@ -32,34 +21,7 @@ export function HomeMobile() {
 
       <div className={styles.bar}>
         <h1 className={styles.title}>Мои домены</h1>
-        {canFilter && (
-          <button
-            className={`${styles.iconBtn} ${openFilter ? styles.on : ''}`}
-            title="Фильтр"
-            onClick={() => setOpenFilter((v) => !v)}
-          >
-            <IconFilter width="24" height="24" />
-          </button>
-        )}
-        <button
-          className={`${styles.iconBtn} ${openSearch ? styles.on : ''}`}
-          title="Поиск"
-          onClick={() => setOpenSearch((v) => !v)}
-        >
-          <IconSearch width="24" height="24" />
-        </button>
       </div>
-
-      {openFilter && (
-        <div className={styles.reveal}>
-          <DomainResellerFilter />
-        </div>
-      )}
-      {openSearch && (
-        <div className={styles.reveal}>
-          <DomainSearch />
-        </div>
-      )}
 
       {reseller === MOCK_EMPTY ? (
         <EmptyState
@@ -72,7 +34,7 @@ export function HomeMobile() {
       ) : (
         <div className={styles.list}>
           {visible.map((d) => (
-            <DomainRowMobile key={d.name} domain={d} onClick={() => openDetails(d.name)} />
+            <DomainRowMobile key={d.name} domain={d} />
           ))}
         </div>
       )}

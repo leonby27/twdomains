@@ -1,26 +1,30 @@
-.wrap {
+/* Белая карточка «Личные данные»: заголовок + строки (лейбл над значением). */
+.card {
   width: 100%;
+  background: var(--surface);
+  border-radius: var(--r);
+  padding: 20px;
+  text-align: left;
+}
+.head {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--text);
+  margin-bottom: 16px;
 }
 .list {
   display: grid;
-  gap: 4px;
-  text-align: left;
-}
-/* Отдельные скруглённые ячейки. Лейбл над значением:
-   длинные строки («кем выдан») не ломают сетку. */
-.row {
-  background: var(--bg);
-  border-radius: var(--r-sm);
-  padding: 10px 14px;
+  gap: 16px;
 }
 .row dt {
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 13px;
+  line-height: 16px;
   color: var(--muted);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .row dd {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.35;
   color: var(--text);

@@ -6,7 +6,8 @@ export function EsiaDetails({ user }) {
   if (!user?.passport) return null
   const num = user.passport.number
   return (
-    <div className={styles.wrap}>
+    <div className={styles.card}>
+      <div className={styles.head}>Личные данные</div>
       <dl className={styles.list}>
         <div className={styles.row}>
           <dt>Дата рождения</dt>

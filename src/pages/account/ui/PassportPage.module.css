@@ -1,0 +1,26 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* Пилюля «Назад»: белая, скруглённая, со стрелкой. */
+.back {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 16px 0 12px;
+  background: var(--surface);
+  border: none;
+  border-radius: 100px;
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--sh);
+}
+.back:hover {
+  background: var(--row-hover);
+}

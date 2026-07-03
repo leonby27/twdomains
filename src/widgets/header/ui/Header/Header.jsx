@@ -7,13 +7,11 @@ import { openProfileModal } from '@/features/profile'
 import { $theme } from '@/features/theme-switch'
 import { reloadRequested } from '@/shared/model/reload'
 import { asset } from '@/shared/lib/asset'
-import { IconBurger } from '@/shared/ui/Icon'
 import { ROUTES } from '@/shared/config/routes'
-import { MobileMenu } from '../MobileMenu/MobileMenu.jsx'
 import styles from './Header.module.css'
 
 // Шапка панели: логотип + подпись · разделитель │ Госуслуги │ пользователь · выход.
-// На мобильном — бургер, открывающий off-canvas меню.
+// На мобильном шапка — только логотип; навигация (Домены/Аккаунт) — в нижнем таб-баре.
 export function Header() {
   const [user, openLogout, openProfile, theme, reload] = useUnit([
     $user,
@@ -22,7 +20,6 @@ export function Header() {
     $theme,
     reloadRequested,
   ])
-  const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -32,10 +29,7 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleLogout = () => {
-    setMenuOpen(false)
-    openLogout()
-  }
+  const handleLogout = () => openLogout()
 
   return (
     <header className={`${styles.appbar} ${scrolled ? styles.scrolled : ''}`}>
@@ -72,18 +66,7 @@ export function Header() {
           </button>
         </div>
 
-        {/* Мобильное меню-бургер (показывается только на узких экранах) */}
-        <button className={styles.burger} title="Меню" onClick={() => setMenuOpen(true)}>
-          <IconBurger width="24" height="24" />
-        </button>
       </div>
-
-      <MobileMenu
-        open={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        user={user}
-        onLogout={handleLogout}
-      />
     </header>
   )
 }

@@ -1,7 +1,7 @@
 .faq {
   margin-top: 20px;
   min-height: 56px;
-  background: var(--under-bg);
+  background: var(--surface);
   border-radius: var(--r);
   display: flex;
   align-items: center;

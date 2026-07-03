@@ -3,6 +3,8 @@
   position: sticky;
   top: 0;
   z-index: 20;
+  /* Отдельный слой перехода: шапка не участвует в анимации контента. */
+  view-transition-name: appheader;
 }
 .scrolled {
   box-shadow: 0 2px 8px rgba(5, 11, 38, 0.04);
@@ -105,6 +107,8 @@
   .inner {
     min-height: 56px;
     padding: 16px;
+    /* На мобайле в шапке только логотип — центрируем его. */
+    justify-content: center;
   }
   .caption {
     display: none;

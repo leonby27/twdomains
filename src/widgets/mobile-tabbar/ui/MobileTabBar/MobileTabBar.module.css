@@ -1,0 +1,37 @@
+/* Только мобайл: на десктопе таб-бар скрыт (навигация — в шапке). */
+.bar {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    display: flex;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    padding: 8px 8px calc(10px + env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 20px rgba(27, 54, 74, 0.06);
+    /* Отдельный слой перехода: таб-бар плавно исчезает/появляется при заходе вглубь. */
+    view-transition-name: tabbar;
+  }
+  .tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 0;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+  .tab.active {
+    color: var(--accent);
+  }
+}

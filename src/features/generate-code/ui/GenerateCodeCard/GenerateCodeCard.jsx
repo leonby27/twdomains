@@ -13,13 +13,13 @@ export function GenerateCodeCard() {
       <span className={styles.circle}>
         <img src={asset('/lock.svg')} alt="" width="32" height="32" />
       </span>
-      <h2 className={styles.title}>Верифицировать домен</h2>
+      <h2 className={styles.title}>Код подтверждения</h2>
       <p className={styles.text}>
-        Верифицируйте домен с помощью кода. Его нужно будет ввести в личном
-        кабинете панели управления Timeweb
+        Код нужно будет ввести в личном кабинете панели управления Timeweb —
+        например, чтобы верифицировать, продлить или передать домен
       </p>
       <Button variant="accent" block style={{ fontWeight: 500 }} onClick={() => open()}>
-        Сгенерировать код верификации
+        Сгенерировать
       </Button>
     </section>
   )

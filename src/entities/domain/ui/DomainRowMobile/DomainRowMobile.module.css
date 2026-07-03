@@ -8,14 +8,8 @@
   background: var(--surface);
   border: none;
   border-radius: 16px;
-  cursor: pointer;
   font: inherit;
   text-align: left;
-}
-.icon {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
 }
 .globe {
   width: 40px;
@@ -25,6 +19,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background: var(--accent);
   color: #fff;
 }
 .body {
@@ -50,8 +45,4 @@
 }
 .subWarn {
   color: var(--orange);
-}
-.chev {
-  color: var(--muted);
-  flex-shrink: 0;
 }

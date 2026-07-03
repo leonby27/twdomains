@@ -1,12 +1,11 @@
-import { IconGlobe, IconChevronRight } from '@/shared/ui/Icon'
+import { IconGlobe } from '@/shared/ui/Icon'
 import { DateBadge } from '../DateBadge/DateBadge.jsx'
-import { ResellerTag } from '../ResellerTag/ResellerTag.jsx'
 import styles from './DomainRow.module.css'
 
-// Строка домена в таблице: глобус + имя · «Оплачен до» · регистратор · шеврон.
-export function DomainRow({ domain, onClick }) {
+// Строка домена в таблице: глобус + имя · «Оплачен до».
+export function DomainRow({ domain }) {
   return (
-    <button className={styles.row} onClick={onClick}>
+    <div className={styles.row}>
       <span className={styles.domain}>
         <span className={styles.globe}>
           <IconGlobe width="20" height="20" />
@@ -16,10 +15,6 @@ export function DomainRow({ domain, onClick }) {
       <span>
         <DateBadge date={domain.paidUntil} status={domain.dateStatus} />
       </span>
-      <span className={styles.reseller}>
-        <ResellerTag reseller={domain.reseller} />
-      </span>
-      <IconChevronRight className={styles.chev} width="20" height="20" />
-    </button>
+    </div>
   )
 }

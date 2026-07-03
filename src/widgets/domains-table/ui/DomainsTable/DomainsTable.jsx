@@ -1,6 +1,5 @@
 import { useUnit } from 'effector-react'
 import { DomainRow } from '@/entities/domain'
-import { openDomainDetails } from '@/features/domain-details'
 import { $sort, sortToggled } from '@/features/sort-domains'
 import { $reseller, MOCK_EMPTY } from '@/features/filter-domains-by-reseller'
 import { Spinner } from '@/shared/ui/Spinner'
@@ -14,17 +13,15 @@ import styles from './DomainsTable.module.css'
 const COLUMNS = [
   { field: 'name', label: 'Домен' },
   { field: 'expiresAt', label: 'Оплачен до' },
-  { field: 'reseller', label: 'Регистратор' },
 ]
 
 // Таблица доменов: сортируемые заголовки + строки. Данные — из $visibleDomains.
 // Первые 30 строк, остальное догружается при скролле (имитация).
 export function DomainsTable() {
-  const [domains, sort, onSort, openDetails, reseller] = useUnit([
+  const [domains, sort, onSort, reseller] = useUnit([
     $visibleDomains,
     $sort,
     sortToggled,
-    openDomainDetails,
     $reseller,
   ])
   const { visible, hasMore, sentinelRef } = useIncrementalList(domains, 30)
@@ -52,7 +49,7 @@ export function DomainsTable() {
           return (
             <button
               key={c.field}
-              className={`${styles.th} ${c.field === 'reseller' ? styles.thReseller : ''} ${active ? styles.active : ''} ${desc ? styles.desc : ''}`}
+              className={`${styles.th} ${active ? styles.active : ''} ${desc ? styles.desc : ''}`}
               onClick={() => onSort(c.field)}
             >
               <span>
@@ -67,15 +64,12 @@ export function DomainsTable() {
             </button>
           )
         })}
-        <span />
       </div>
       <div className={styles.body}>
         {visible.length === 0 ? (
           <div className={styles.empty}>Ничего не найдено</div>
         ) : (
-          visible.map((d) => (
-            <DomainRow key={d.name} domain={d} onClick={() => openDetails(d.name)} />
-          ))
+          visible.map((d) => <DomainRow key={d.name} domain={d} />)
         )}
       </div>
       {hasMore && (
