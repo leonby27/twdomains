@@ -8,15 +8,15 @@
   --bg: #f5f6f8;
   --surface: #ffffff;
   --under-bg: #eef0f4;
-  --text: #050b26;
+  --text: #1b364a;
   --text-2: #676e85; /* secondary dark */
   --muted: #83899f;
   --line: #f1f2f3;
   --line-2: #dce1ea;
-  --accent: #474cee;
-  --accent-600: #3a3fd4;
-  --accent-bg: #e6e7fc;
-  --accent-bg-hover: #d8dafb;
+  --accent: #2a77b5;
+  --accent-600: #23628f;
+  --accent-bg: #e1edf6;
+  --accent-bg-hover: #d0e2f0;
   --row-hover: #fafbfc;
   --chip: #f5f6f8; /* фон вложенных «пилюль»: кружки иконок, теги, поля */
   --badge-mark: #fff; /* знак внутри статус-бейджей (!/галочка) */
@@ -46,10 +46,10 @@
   --muted: #6e7283;
   --line: #1c232c;
   --line-2: #363a48;
-  --accent: #464cee;
-  --accent-600: #6b6ef0;
-  --accent-bg: #2b2c46;
-  --accent-bg-hover: #36375e;
+  --accent: #2a77b5;
+  --accent-600: #4f95ce;
+  --accent-bg: #1d3648;
+  --accent-bg-hover: #244458;
   --row-hover: #1e2531;
   --chip: #232b38; /* светлее surface — вложенные пилюли «приподняты» */
   --badge-mark: #10161c; /* тёмный знак на ярком бейдже */

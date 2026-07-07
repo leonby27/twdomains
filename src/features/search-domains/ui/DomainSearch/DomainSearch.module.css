@@ -39,7 +39,7 @@
   background: none;
   padding: 0;
   font: inherit;
-  color: var(--accent, #6c5ce7);
+  color: var(--accent, #2a77b5);
   font-weight: 500;
   cursor: pointer;
 }
