@@ -1,6 +1,6 @@
 .gencode {
   flex-shrink: 0;
-  width: 272px;
+  width: 360px;
   background: var(--surface);
   border: none;
   border-radius: var(--r);
@@ -51,6 +51,7 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--text-2);
+  white-space: nowrap;
 }
 .arrow {
   color: var(--muted);

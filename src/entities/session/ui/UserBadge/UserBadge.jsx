@@ -13,13 +13,13 @@ export function UserBadge({ user, onClick }) {
           <img
             className={styles.verified}
             src={asset('/verified.svg')}
-            alt="Верифицирован через ЕСИА"
+            alt="Подтверждён через Госуслуги"
             width="18"
             height="18"
           />
         )}
       </div>
-      <div className={styles.sub}>Верифицирован через ЕСИА</div>
+      <div className={styles.sub}>Подтверждён через Госуслуги</div>
     </>
   )
   if (onClick) {

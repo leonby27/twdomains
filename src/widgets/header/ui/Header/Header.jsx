@@ -47,7 +47,7 @@ export function Header() {
             src={theme === 'dark' ? asset('/logo-dark.svg') : asset('/logo.svg')}
             alt="Timeweb"
           />
-          <span className={styles.caption}>Панель регистратора доменов</span>
+          <span className={styles.caption}>Панель управления доменами</span>
         </Link>
 
         <div className={styles.right}>

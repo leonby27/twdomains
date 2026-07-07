@@ -14,7 +14,7 @@ export function GenerateCodeButton() {
       </span>
       <span className={styles.body}>
         <span className={styles.title}>Сгенерировать код</span>
-        <span className={styles.sub}>для верификации домена</span>
+        <span className={styles.sub}>Для подтверждения действий с доменом</span>
       </span>
       <IconChevronRight className={styles.arrow} width="20" height="20" />
     </button>

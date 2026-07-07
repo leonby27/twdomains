@@ -11,7 +11,6 @@ export function HomeDesktop() {
       <div className={styles.top}>
         <div>
           <h1 className={styles.title}>Мои домены</h1>
-          <p className={styles.subtitle}>Отображаются только верифицированные домены</p>
         </div>
         <GenerateCodeButton />
       </div>

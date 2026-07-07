@@ -17,7 +17,7 @@ export function LoginPage() {
         alt="Timeweb"
       />
       <div className={styles.card}>
-        <h1 className={styles.title}>Панель регистратора доменов</h1>
+        <h1 className={styles.title}>Панель управления доменами</h1>
         <p className={styles.lead}>
           Ваш аккаунт в Госуслугах — ключ ко всем верифицированным доменам,
           где бы они ни были размещены.
