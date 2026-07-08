@@ -5,6 +5,7 @@ import { MobileTabBar } from '@/widgets/mobile-tabbar'
 import { CodeModal } from '@/features/generate-code'
 import { LogoutConfirmModal } from '@/features/logout'
 import { ProfileDrawer } from '@/features/profile'
+import { ContactButton, ContactModal } from '@/features/contact-support'
 import { $reloadKey } from '@/shared/model/reload'
 import { ROUTES } from '@/shared/config/routes'
 import styles from './PanelLayout.module.css'
@@ -33,9 +34,11 @@ export function PanelLayout({ children, back }) {
         {children}
       </main>
       {showTabBar && <MobileTabBar />}
+      <ContactButton />
       <CodeModal />
       <LogoutConfirmModal />
       <ProfileDrawer />
+      <ContactModal />
     </div>
   )
 }

@@ -1,0 +1,32 @@
+.fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--sh-lg);
+  z-index: 50;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+.fab:hover {
+  background: var(--accent-600);
+  transform: translateY(-2px);
+}
+.fab:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 760px) {
+  .fab {
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}

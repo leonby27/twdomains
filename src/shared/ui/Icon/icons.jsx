@@ -169,6 +169,12 @@ export const IconMoon = (p) => (
   </svg>
 )
 
+export const IconMessage = (p) => (
+  <svg {...base} {...p}>
+    <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+  </svg>
+)
+
 // Стилизованный «значок» Госуслуг (условный, не официальный логотип).
 export const IconGos = (p) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...p}>
