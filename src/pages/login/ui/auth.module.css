@@ -17,7 +17,7 @@
   border-radius: 22px;
   padding: 34px 30px;
   width: 100%;
-  max-width: 440px;
+  max-width: 500px;
   text-align: center;
   margin: auto 0;
 }
@@ -30,7 +30,7 @@
   gap: 8px;
   padding: 48px 30px;
   /* Совпадает по высоте с карточкой входа, чтобы при переходе не было скачка. */
-  min-height: 238px;
+  min-height: 234px;
 }
 .center .loadTitle {
   margin-top: 8px;

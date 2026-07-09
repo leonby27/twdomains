@@ -87,7 +87,15 @@
 .body {
   background: var(--surface);
   border-radius: var(--r);
-  overflow: hidden;
+}
+/* Скругление углов без overflow:hidden — иначе он обрезал бы тултипы строк. */
+.body > :first-child {
+  border-top-left-radius: var(--r);
+  border-top-right-radius: var(--r);
+}
+.body > :last-child {
+  border-bottom-left-radius: var(--r);
+  border-bottom-right-radius: var(--r);
 }
 .empty {
   text-align: center;

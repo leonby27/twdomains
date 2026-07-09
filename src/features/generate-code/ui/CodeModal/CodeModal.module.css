@@ -65,12 +65,82 @@
   letter-spacing: 0.6px;
   color: var(--muted);
 }
+.codeRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 .code {
   font-family: ui-monospace, monospace;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: 2px;
   color: var(--text);
+  display: inline-flex;
+  transition: filter 0.2s;
+}
+.blurred {
+  filter: blur(6px);
+  user-select: none;
+}
+.char {
+  display: inline-block;
+  min-width: 0.62em;
+  text-align: center;
+}
+.refresh {
+  position: relative;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.refresh:hover {
+  color: var(--accent);
+}
+.spin {
+  animation: spin 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.refresh::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--text);
+  color: var(--surface);
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 5;
+}
+.refresh:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 .expired .code {
   color: var(--muted);
@@ -108,6 +178,11 @@
 .action:hover {
   background: var(--accent-600);
 }
+.action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 .action:active {
   transform: scale(0.99);
 }
@@ -123,6 +198,32 @@
   font-size: 13px;
   text-align: center;
   color: #e85b1a;
+}
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 14px;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.45;
+  cursor: pointer;
+  user-select: none;
+}
+.consent input {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.consent a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.consent a:hover {
+  text-decoration: underline;
 }
 
 @keyframes fadeIn {
@@ -174,7 +275,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .scrim,
-  .card {
+  .card,
+  .spin {
     animation: none;
   }
 }

@@ -169,6 +169,13 @@ export const IconMoon = (p) => (
   </svg>
 )
 
+export const IconRefresh = (p) => (
+  <svg {...base} {...p}>
+    <path d="M3 12a9 9 0 0 1 15.5-6.5M21 12a9 9 0 0 1-15.5 6.5" />
+    <path d="M18.5 2v4h-4M5.5 22v-4h4" />
+  </svg>
+)
+
 export const IconMessage = (p) => (
   <svg {...base} {...p}>
     <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />

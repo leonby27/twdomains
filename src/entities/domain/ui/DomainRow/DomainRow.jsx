@@ -13,7 +13,7 @@ export function DomainRow({ domain }) {
         <span className={styles.name}>{domain.name}</span>
       </span>
       <span>
-        <DateBadge date={domain.paidUntil} status={domain.dateStatus} />
+        <DateBadge date={domain.paidUntil} status={domain.dateStatus} daysLeft={domain.daysLeft} />
       </span>
     </div>
   )

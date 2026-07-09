@@ -18,10 +18,7 @@ export function LoginPage() {
       />
       <div className={styles.card}>
         <h1 className={styles.title}>Панель управления доменами</h1>
-        <p className={styles.lead}>
-          Ваш аккаунт в Госуслугах — ключ ко всем верифицированным доменам,
-          где бы они ни были размещены.
-        </p>
+        <p className={styles.lead}>Для доступа к доменам используется вход через Госуслуги</p>
         <GosuslugiButton disabled={!agreed} />
         <label className={styles.consent}>
           <input

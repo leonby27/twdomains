@@ -39,9 +39,11 @@ function formatRuDate(iso) {
   const d = new Date(`${iso}T00:00:00`)
   return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`
 }
+function daysUntil(iso) {
+  return Math.round((new Date(`${iso}T00:00:00`) - REFERENCE) / 86400000)
+}
 function statusFor(iso) {
-  const days = (new Date(`${iso}T00:00:00`) - REFERENCE) / 86400000
-  return days <= WARNING_DAYS ? 'warning' : 'ok'
+  return daysUntil(iso) <= WARNING_DAYS ? 'warning' : 'ok'
 }
 
 // 50 доменов в зоне .ru с названиями в духе российских компаний.
@@ -107,6 +109,7 @@ const MOCK_DOMAINS = RAW.map((d, i) => ({
   expiresAt: d.expiresAt,
   paidUntil: formatRuDate(d.expiresAt),
   dateStatus: statusFor(d.expiresAt),
+  daysLeft: daysUntil(d.expiresAt),
 }))
 
 const delay = (ms) => new Promise((r) => setTimeout(r, ms))
