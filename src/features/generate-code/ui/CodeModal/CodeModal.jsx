@@ -129,8 +129,8 @@ export function CodeModal() {
           ✕
         </button>
 
-        <div className={styles.title}>Код верификации</div>
-        <div className={styles.sub}>Временный код для ввода в личном кабинете реселлера</div>
+        <div className={styles.title}>Код подтверждения</div>
+        <div className={styles.sub}>Временный код для ввода в аккаунте реселлера</div>
 
         <div className={styles.codeBox}>
           <div className={styles.codeRow}>
@@ -170,7 +170,7 @@ export function CodeModal() {
         </div>
 
         <div className={styles.note}>
-          Передайте код владельцу аккаунта — он введёт его в личном кабинете реселлера
+          Передайте код владельцу аккаунта — он введёт его для подтверждения операции с доменом
         </div>
 
         {expired ? (

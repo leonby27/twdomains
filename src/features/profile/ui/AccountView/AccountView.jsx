@@ -34,7 +34,7 @@ export function AccountView({ onRefresh, onLogout, onDetails }) {
             />
           )}
         </div>
-        <div className={styles.sub}>Аккаунт верифицирован через Госуслуги</div>
+        <div className={styles.sub}>Аккаунт подтверждён через Госуслуги</div>
         <Button variant="accent" className={styles.refresh} onClick={onRefresh}>
           Обновить данные
         </Button>
