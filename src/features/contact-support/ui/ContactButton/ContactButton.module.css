@@ -1,7 +1,14 @@
-.fab {
+.wrap {
   position: fixed;
   right: 24px;
   bottom: 24px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.fab {
   width: 56px;
   height: 56px;
   border: none;
@@ -13,7 +20,6 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: var(--sh-lg);
-  z-index: 50;
   transition: transform 0.12s ease, background 0.15s ease;
 }
 .fab:hover {
@@ -23,10 +29,67 @@
 .fab:active {
   transform: scale(0.96);
 }
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: var(--sh-lg);
+  overflow: hidden;
+  animation: fadeUp 0.16s ease;
+}
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 18px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.item + .item {
+  border-top: 1px solid var(--line);
+}
+.item:hover {
+  background: var(--bg);
+}
+.item:active {
+  background: var(--chip);
+}
+.itemIc {
+  display: inline-flex;
+  color: var(--accent);
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
 
 @media (max-width: 760px) {
-  .fab {
+  .wrap {
     right: 16px;
     bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    animation: none;
   }
 }
